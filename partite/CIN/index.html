@@ -935,6 +935,7 @@ if (screen.orientation && screen.orientation.lock) {
                     playerModal.classList.add('hidden');
                 }
             });
+enableKeyboardNavigation();
 
         });
         
@@ -1167,7 +1168,7 @@ async function getMovieDetails(id, type = 'movie') {
             playMovie(details, type);
         }
     });
-    
+    window.updateFocusableCards();
     return card;
 }
         
@@ -1267,7 +1268,100 @@ async function getMovieDetails(id, type = 'movie') {
 }
         
        // Play movie with advanced player
+	   
+	   
+	  
+	  
+	  var focusIndex = 0;
+var focusableCards = [];
 
+function enableKeyboardNavigation() {
+document.addEventListener('keydown', function(e) {
+  if (focusableCards.length === 0) return;
+
+  var columns = 5; // numero di colonne nella griglia
+  var nextIndex;
+
+  if (e.key === 'ArrowRight') {
+    focusIndex = (focusIndex + 1) % focusableCards.length;
+  } else if (e.key === 'ArrowLeft') {
+    focusIndex = (focusIndex - 1 + focusableCards.length) % focusableCards.length;
+  } else if (e.key === 'ArrowDown') {
+    nextIndex = focusIndex + columns;
+    if (nextIndex < focusableCards.length) {
+      focusIndex = nextIndex;
+    } else {
+      // salta all'ultima card se non c'è sotto
+      focusIndex = focusableCards.length - 1;
+    }
+  } else if (e.key === 'ArrowUp') {
+    nextIndex = focusIndex - columns;
+    if (nextIndex >= 0) {
+      focusIndex = nextIndex;
+    } else {
+      // salta alla prima card se non c'è sopra
+      focusIndex = 0;
+    }
+  } else if (e.key === 'Enter') {
+    focusableCards[focusIndex].click();
+  } else if (e.key === 'Escape') {
+    var modal = document.getElementById('movie-modal');
+    if (modal) modal.classList.add('hidden');
+
+    var player = document.getElementById('player-modal');
+    if (player) player.classList.add('hidden');
+
+    var selector = document.getElementById('seasonEpisodeSelector');
+    if (selector) selector.style.display = 'none';
+  }
+
+  focusableCards[focusIndex].focus();
+});
+
+  updateFocusableCards(); // iniziale
+}
+
+function updateFocusableCards() {
+  focusableCards = Array.prototype.slice.call(document.querySelectorAll('.movie-card'));
+  for (var i = 0; i < focusableCards.length; i++) {
+    var card = focusableCards[i];
+    card.setAttribute('tabindex', '0');
+    card.dataset.index = i;
+
+    card.addEventListener('focus', function() {
+      this.classList.add('ring-2');
+      this.classList.add('ring-primary');
+    });
+
+    card.addEventListener('blur', function() {
+      this.classList.remove('ring-2');
+      this.classList.remove('ring-primary');
+    });
+  }
+
+  if (focusableCards[0]) {
+    focusableCards[0].focus();
+    focusIndex = 0;
+  }
+}
+	  
     </script>
+	
+	
+	
+	<!-- 🔥 MODALE DESCRIZIONE FILM -->
+<div id="movie-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden" tabindex="-1">
+  <div class="bg-gray-900 text-white p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+    <h2 id="modalTitle" class="text-xl font-bold mb-2">Titolo del film</h2>
+    <p id="modalOverview" class="description text-sm text-gray-300 mb-4 max-h-72 overflow-y-auto">
+      Trama lunga del film che può essere scrollata con tastiera o mouse.
+    </p>
+    <button id="modalPlayButton" tabindex="0" class="play-button bg-primary hover:bg-red-700 text-white rounded-full px-4 py-2">
+      <i class="fas fa-play mr-2"></i> Play
+    </button>
+    <button id="closeModal" class="ml-4 text-sm text-gray-400 hover:text-white">Chiudi</button>
+  </div>
+</div>
+
 </body>
 </html>
