@@ -1326,51 +1326,7 @@ async function getMovieDetails(id, type = 'movie') {
 	  var focusIndex = 0;
 var focusableCards = [];
 
-function enableKeyboardNavigation() {
-document.addEventListener('keydown', function(e) {
-  if (focusableCards.length === 0) return;
 
-  var columns = 5; // numero di colonne nella griglia
-  var nextIndex;
-
-  if (e.key === 'ArrowRight') {
-    focusIndex = (focusIndex + 1) % focusableCards.length;
-  } else if (e.key === 'ArrowLeft') {
-    focusIndex = (focusIndex - 1 + focusableCards.length) % focusableCards.length;
-  } else if (e.key === 'ArrowDown') {
-    nextIndex = focusIndex + columns;
-    if (nextIndex < focusableCards.length) {
-      focusIndex = nextIndex;
-    } else {
-      // salta all'ultima card se non c'è sotto
-      focusIndex = focusableCards.length - 1;
-    }
-  } else if (e.key === 'ArrowUp') {
-    nextIndex = focusIndex - columns;
-    if (nextIndex >= 0) {
-      focusIndex = nextIndex;
-    } else {
-      // salta alla prima card se non c'è sopra
-      focusIndex = 0;
-    }
-  } else if (e.key === 'Enter') {
-    focusableCards[focusIndex].click();
-  } else if (e.key === 'Escape') {
-    var modal = document.getElementById('movie-modal');
-    if (modal) modal.classList.add('hidden');
-
-    var player = document.getElementById('player-modal');
-    if (player) player.classList.add('hidden');
-
-    var selector = document.getElementById('seasonEpisodeSelector');
-    if (selector) selector.style.display = 'none';
-  }
-
-  focusableCards[focusIndex].focus();
-});
-
-  updateFocusableCards(); // iniziale
-}
 
 function updateFocusableCards() {
   focusableCards = Array.prototype.slice.call(document.querySelectorAll('.movie-card'));
