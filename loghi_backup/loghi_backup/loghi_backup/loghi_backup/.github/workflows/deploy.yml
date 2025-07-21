@@ -1,0 +1,12 @@
+name: Stop Everything
+
+on:
+  push:
+
+jobs:
+  canceler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stop workflow
+        run: echo "Workflow disattivato temporaneamente"
+
