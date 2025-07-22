@@ -2233,6 +2233,9 @@ async function showMovieDetails(content, type = null) {
         
         // Show movie details in modal
  
+ 
+ 
+
         
     </script>
 
@@ -2243,5 +2246,24 @@ async function showMovieDetails(content, type = null) {
       .catch(err => console.error('❌ Service Worker errore:', err));
   }
 </script>
+
+
+<script>
+function enterFullscreen() {
+    const container = document.getElementById('videoContainer');
+    if (!container) return;
+
+    if (container.requestFullscreen) {
+        container.requestFullscreen().catch(err => console.warn("Fullscreen error:", err));
+    } else if (container.webkitRequestFullscreen) {
+        container.webkitRequestFullscreen();
+    }
+
+    if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(err => console.warn("Orientation lock failed:", err));
+    }
+}
+</script>
+
 </body>
 </html>
