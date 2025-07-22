@@ -1,48 +1,67 @@
 // js/player.js
 class VideoPlayer {
-    constructor() {
-        this.hls = null;
-        this.isSeeking = false;
-        this.controlsTimeout = null;
-        this.zoomLevel = 1;
-        this.lastTapTime = 0;
+constructor() {
+    this.hls = null;
+    this.isSeeking = false;
+    this.controlsTimeout = null;
+    this.zoomLevel = 1;
+    this.lastTapTime = 0;
 
-        // Riferimenti agli elementi del player
-        this.videoPlayer = document.getElementById('videoPlayer');
-        this.playerModal = document.getElementById('player-modal');
-        this.loadingOverlay = document.getElementById('loadingOverlay');
-        this.errorOverlay = document.getElementById('errorOverlay');
-        this.errorText = document.getElementById('errorText');
-        this.controlsContainer = document.getElementById('controlsContainer');
-        this.backButtonContainer = document.getElementById('backButtonContainer');
+    // Riferimenti agli elementi del player
+    this.videoPlayer = document.getElementById('videoPlayer');
+    this.playerModal = document.getElementById('player-modal');
+    this.loadingOverlay = document.getElementById('loadingOverlay');
+    this.errorOverlay = document.getElementById('errorOverlay');
+    this.errorText = document.getElementById('errorText');
+    this.controlsContainer = document.getElementById('controlsContainer');
+    this.backButtonContainer = document.getElementById('backButtonContainer');
 
-        // Controlli del player
-        this.retryButton = document.getElementById('retryButton');
-        this.playPauseBtn = document.getElementById('playPauseBtn');
-        this.playIcon = document.getElementById('playIcon');
-        this.volumeBtn = document.getElementById('volumeBtn');
-        this.volumeIcon = document.getElementById('volumeIcon');
-        this.volumeSlider = document.getElementById('volumeSlider');
-        this.currentTime = document.getElementById('currentTime');
-        this.duration = document.getElementById('duration');
-        this.progressBar = document.getElementById('progressBar');
-        this.progressContainer = document.getElementById('progressContainer');
-        this.fullscreenBtn = document.getElementById('fullscreenBtn');
-        this.zoomBtn = document.getElementById('zoomBtn');
-        this.closePlayerBtn = document.getElementById('close-player');
-        this.skipForward = document.getElementById('skipForward');
-        this.skipBackward = document.getElementById('skipBackward');
+    // Controlli del player
+    this.retryButton = document.getElementById('retryButton');
+    this.playPauseBtn = document.getElementById('playPauseBtn');
+    this.playIcon = document.getElementById('playIcon');
+    this.volumeBtn = document.getElementById('volumeBtn');
+    this.volumeIcon = document.getElementById('volumeIcon');
+    this.volumeSlider = document.getElementById('volumeSlider');
+    this.currentTime = document.getElementById('currentTime');
+    this.duration = document.getElementById('duration');
+    this.progressBar = document.getElementById('progressBar');
+    this.progressContainer = document.getElementById('progressContainer');
+    this.fullscreenBtn = document.getElementById('fullscreenBtn');
+    this.zoomBtn = document.getElementById('zoomBtn');
+    this.closePlayerBtn = document.getElementById('close-player');
+    this.skipForward = document.getElementById('skipForward');
+    this.skipBackward = document.getElementById('skipBackward');
 
-        // Menu e impostazioni
-        this.settingsBtn = document.getElementById('settingsBtn');
-        this.audioTrackBtn = document.getElementById('audioTrackBtn');
-        this.captionsBtn = document.getElementById('captionsBtn');
-        this.settingsMenu = document.getElementById('settingsMenu');
-        this.audioMenu = document.getElementById('audioMenu');
-        this.captionsMenu = document.getElementById('captionsMenu');
+    // Menu e impostazioni
+    this.settingsBtn = document.getElementById('settingsBtn');
+    this.audioTrackBtn = document.getElementById('audioTrackBtn');
+    this.captionsBtn = document.getElementById('captionsBtn');
+    this.settingsMenu = document.getElementById('settingsMenu');
+    this.audioMenu = document.getElementById('audioMenu');
+    this.captionsMenu = document.getElementById('captionsMenu');
 
-        this.initEventListeners();
-    }
+    // 👇 AGGIUNTA: eventi per mostrare i controlli
+    this.videoPlayer.addEventListener('mousemove', () => this.showControls());
+    this.videoPlayer.addEventListener('touchstart', () => this.showControls());
+
+    this.initEventListeners();
+}
+
+showControls() {
+    this.controlsContainer.style.opacity = '1';
+    this.backButtonContainer.style.opacity = '1';
+    this.startControlsTimeout();
+}
+
+startControlsTimeout() {
+    clearTimeout(this.controlsTimeout);
+    this.controlsTimeout = setTimeout(() => {
+        this.controlsContainer.style.opacity = '0';
+        this.backButtonContainer.style.opacity = '0';
+    }, 3000);
+}
+
 
     async play(content) {
         this.content = content;
