@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Film - Popolari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+  
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.2; /* controlla la trasparenza */
+  pointer-events: none;
+  z-index: -1;
+}
+
+ body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      padding: 20px;
+      color: #e50914;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #e50914, 0 0 40px #fff;
+    }
+
+    .menu {
+      background-color: #000;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .menu ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin: 0 15px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #e50914;
+    }
+
+    .griglia {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .canale {
+  background-color: #222;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 220px; /* altezza uniforme */
+  padding: 0;
+  overflow: hidden;
+}
+
+    .canale:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px #e50914;
+    }
+
+  .canale img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background-color: #000;
+    }
+
+  .canale p {
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0;
+  flex-shrink: 0;
+  
+}
+ 
+ 
+ .canale a {
+  text-decoration: none;
+  color: inherit;
+  }
+
+    #background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: #e50914;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 3s ease-in forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+	
+	 .logo-canale {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  }
+  </style>
+</head>
+<body>
+  <h1>Film - Popolari</h1>
+  <div class="griglia">
+    
+    <div class="canale " id="I_peccatori_2025">
+      <a href="https://vixsrc.to/movie/1233413/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/gGhvLVcdWQanE1XuPkC3iE4PJN9.jpg" alt="I peccatori (2025)" />
+        
+        <p>I peccatori (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Un_film_Minecraft_2025">
+      <a href="https://vixsrc.to/movie/950387/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/myoxQxrAEZICqe3DRyJUsiE5lWS.jpg" alt="Un film Minecraft (2025)" />
+        
+        <p>Un film Minecraft (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="84m²_2025">
+      <a href="https://vixsrc.to/movie/1269208/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/wUdyz4lYoyCR906SRJoL7GeN2rc.jpg" alt="84m² (2025)" />
+        
+        <p>84m² (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Influencer_L_isola_delle_illusioni_2023">
+      <a href="https://vixsrc.to/movie/1020910/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/dMpewhQQjk1ECBbvoU2jVSKgxbF.jpg" alt="Influencer - L'isola delle illusioni (2023)" />
+        
+        <p>Influencer - L'isola delle illusioni (2023)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="ปากก_ด_ต_นถ_บ_2025">
+      <a href="https://vixsrc.to/movie/1429744/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/crYBmWgznCvCkVZZrELlf4ZU9ao.jpg" alt="ปากกัด ตีนถีบ (2025)" />
+        
+        <p>ปากกัด ตีนถีบ (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="KPop_Demon_Hunters_2025">
+      <a href="https://vixsrc.to/movie/803796/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/43c1efKzA1kigNzY0HBzeoXp8LR.jpg" alt="KPop Demon Hunters (2025)" />
+        
+        <p>KPop Demon Hunters (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="The_Accountant_2_2025">
+      <a href="https://vixsrc.to/movie/870028/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/7TRiTQScz6jb6wz5oW9TxWzrOAa.jpg" alt="The Accountant 2 (2025)" />
+        
+        <p>The Accountant 2 (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="F1_Il_Film_2025">
+      <a href="https://vixsrc.to/movie/911430/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/tGMs4Ji6CH33GIx5aHAXc0uhu3F.jpg" alt="F1: Il Film (2025)" />
+        
+        <p>F1: Il Film (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="The_Old_Guard_2_2025">
+      <a href="https://vixsrc.to/movie/846422/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/wqfu3bPLJaEWJVk3QOm0rKhxf1A.jpg" alt="The Old Guard 2 (2025)" />
+        
+        <p>The Old Guard 2 (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Brick_2025">
+      <a href="https://vixsrc.to/movie/1425045/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/6ZbhhKyb1QF8Rj8lzOZ74Hm5YKS.jpg" alt="Brick (2025)" />
+        
+        <p>Brick (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Karate_Kid_Legends_2025">
+      <a href="https://vixsrc.to/movie/1011477/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/s89EiUFcBVNW5a66AyMtQekC8Dg.jpg" alt="Karate Kid: Legends (2025)" />
+        
+        <p>Karate Kid: Legends (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Almost_Cops_2025">
+      <a href="https://vixsrc.to/movie/1374534/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/vRfaESjUXHvsSv1fx8keTiLavZt.jpg" alt="Almost Cops (2025)" />
+        
+        <p>Almost Cops (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Jurassic_World_La_rinascita_2025">
+      <a href="https://vixsrc.to/movie/1234821/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/tgYaEduCd3wn9BhxiQiG3Se4PjD.jpg" alt="Jurassic World - La rinascita (2025)" />
+        
+        <p>Jurassic World - La rinascita (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Superman_2025">
+      <a href="https://vixsrc.to/movie/1061474/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/iaGVf2or8w2cwL8hJU8W0X3l4qp.jpg" alt="Superman (2025)" />
+        
+        <p>Superman (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Ballerina_2025">
+      <a href="https://vixsrc.to/movie/541671/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/2VUmvqsHb6cEtdfscEA6fqqVzLg.jpg" alt="Ballerina (2025)" />
+        
+        <p>Ballerina (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Capi_di_Stato_in_fuga_2025">
+      <a href="https://vixsrc.to/movie/749170/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/uiubfSOgtfi92C38YSMLK7EixeI.jpg" alt="Capi di Stato in fuga (2025)" />
+        
+        <p>Capi di Stato in fuga (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="ZOMBIES_4_L_Alba_dei_Vampiri_2025">
+      <a href="https://vixsrc.to/movie/1243341/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/g3TJsRvWtF9APwVXYKbWaqPjy50.jpg" alt="ZOMBIES 4: L'Alba dei Vampiri (2025)" />
+        
+        <p>ZOMBIES 4: L'Alba dei Vampiri (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Lilo_Stitch_2025">
+      <a href="https://vixsrc.to/movie/552524/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/pPzClGa4jUxEYcRGQ2LEcK4FRQY.jpg" alt="Lilo & Stitch (2025)" />
+        
+        <p>Lilo & Stitch (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Long_Distance_Senza_ossigeno_2024">
+      <a href="https://vixsrc.to/movie/605722/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/eAZytDr3dmq8q12tMamX601xkgf.jpg" alt="Long Distance - Senza ossigeno (2024)" />
+        
+        <p>Long Distance - Senza ossigeno (2024)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Oceania_2_2024">
+      <a href="https://vixsrc.to/movie/1241982/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/qdNQzzq4QnQDji90plwntjbuEGW.jpg" alt="Oceania 2 (2024)" />
+        
+        <p>Oceania 2 (2024)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Dragon_Trainer_2025">
+      <a href="https://vixsrc.to/movie/1087192/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/iLrqsG4tmqHEInjKIf6cpyQp30N.jpg" alt="Dragon Trainer (2025)" />
+        
+        <p>Dragon Trainer (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="È_colpa_mia_2023">
+      <a href="https://vixsrc.to/movie/1010581/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/wXwB3KhYhvzfsDMH6JBgbfsLi8s.jpg" alt="È colpa mia? (2023)" />
+        
+        <p>È colpa mia? (2023)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Dora_alla_ricerca_di_Sol_Dorado_2025">
+      <a href="https://vixsrc.to/movie/1287536/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/rzPymh6xqXuvH3i7yEMdckRMefG.jpg" alt="Dora alla ricerca di Sol Dorado (2025)" />
+        
+        <p>Dora alla ricerca di Sol Dorado (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Operazione_vendetta_2025">
+      <a href="https://vixsrc.to/movie/1087891/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/9IoYsiQEUe50ViywjffKh5pUJqX.jpg" alt="Operazione vendetta (2025)" />
+        
+        <p>Operazione vendetta (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Mission_Impossible_The_Final_Reckoning_2025">
+      <a href="https://vixsrc.to/movie/575265/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/a8Yg38L5JY7QtEXuLlfIWFZfxhD.jpg" alt="Mission: Impossible - The Final Reckoning (2025)" />
+        
+        <p>Mission: Impossible - The Final Reckoning (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Final_Destination_Bloodlines_2025">
+      <a href="https://vixsrc.to/movie/574475/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/hzGZDjkGf3kZVztnh1aj2LaO9DX.jpg" alt="Final Destination: Bloodlines (2025)" />
+        
+        <p>Final Destination: Bloodlines (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="xXx_2002">
+      <a href="https://vixsrc.to/movie/7451/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/Add4kbQS39y5pgUOGZDC38Q146W.jpg" alt="xXx (2002)" />
+        
+        <p>xXx (2002)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="M3GAN_2_0_2025">
+      <a href="https://vixsrc.to/movie/1071585/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/4a63rQqIDTrYNdcnTXdPsQyxVLo.jpg" alt="M3GAN 2.0 (2025)" />
+        
+        <p>M3GAN 2.0 (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="28_anni_dopo_2025">
+      <a href="https://vixsrc.to/movie/1100988/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/vdgKm72KVHTRcdUNFsS1Yy3qjkB.jpg" alt="28 anni dopo (2025)" />
+        
+        <p>28 anni dopo (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Madea_s_Destination_Wedding_2025">
+      <a href="https://vixsrc.to/movie/1246310/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/jwMwRucnAROgWo9WLLmIqzHmmzi.jpg" alt="Madea's Destination Wedding (2025)" />
+        
+        <p>Madea's Destination Wedding (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="A_Working_Man_2025">
+      <a href="https://vixsrc.to/movie/1197306/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/svSRfBNmZjDnus65gZJovFNa63R.jpg" alt="A Working Man (2025)" />
+        
+        <p>A Working Man (2025)</p>
+      </a>
+    </div>
+    
+    <div class="canale " id="Thunderbolts_2025">
+      <a href="https://vixsrc.to/movie/986056/?lang=it" target="_blank">
+        
+          <img src="https://image.tmdb.org/t/p/w500/crggVLnJ6btoK4JC04ZJEs2YkwA.jpg" alt="Thunderbolts* (2025)" />
+        
+        <p>Thunderbolts* (2025)</p>
+      </a>
+    </div>
+    
+  </div>
+  <div class="back">
+    <a href="index.html">⟵ Torna alla home</a>
+  </div>
+</body>
+</html>
