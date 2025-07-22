@@ -553,5 +553,6 @@ function playMovie(content, type = null) {
         ...content,
         media_type: content.media_type || type || 'movie'
     };
+    enterFullscreen(); // ✅ Aggiunto qui
     videoPlayerInstance.play(playerContent);
 }
