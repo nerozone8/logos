@@ -1,74 +1,56 @@
 // js/player.js
 class VideoPlayer {
-constructor() {
-    this.hls = null;
-    this.isSeeking = false;
-    this.controlsTimeout = null;
-    this.zoomLevel = 1;
-    this.lastTapTime = 0;
+    constructor() {
+        this.hls = null;
+        this.isSeeking = false;
+        this.controlsTimeout = null;
+        this.zoomLevel = 1;
+        this.lastTapTime = 0;
 
-    // Riferimenti agli elementi del player
-    this.videoPlayer = document.getElementById('videoPlayer');
-    this.playerModal = document.getElementById('player-modal');
-    this.loadingOverlay = document.getElementById('loadingOverlay');
-    this.errorOverlay = document.getElementById('errorOverlay');
-    this.errorText = document.getElementById('errorText');
-    this.controlsContainer = document.getElementById('controlsContainer');
-    this.backButtonContainer = document.getElementById('backButtonContainer');
+        // Riferimenti agli elementi del player
+        this.videoPlayer = document.getElementById('videoPlayer');
+        this.playerModal = document.getElementById('player-modal');
+        this.loadingOverlay = document.getElementById('loadingOverlay');
+        this.errorOverlay = document.getElementById('errorOverlay');
+        this.errorText = document.getElementById('errorText');
+        this.controlsContainer = document.getElementById('controlsContainer');
+        this.backButtonContainer = document.getElementById('backButtonContainer');
 
-    // Controlli del player
-    this.retryButton = document.getElementById('retryButton');
-    this.playPauseBtn = document.getElementById('playPauseBtn');
-    this.playIcon = document.getElementById('playIcon');
-    this.volumeBtn = document.getElementById('volumeBtn');
-    this.volumeIcon = document.getElementById('volumeIcon');
-    this.volumeSlider = document.getElementById('volumeSlider');
-    this.currentTime = document.getElementById('currentTime');
-    this.duration = document.getElementById('duration');
-    this.progressBar = document.getElementById('progressBar');
-    this.progressContainer = document.getElementById('progressContainer');
-    this.fullscreenBtn = document.getElementById('fullscreenBtn');
-    this.zoomBtn = document.getElementById('zoomBtn');
-    this.closePlayerBtn = document.getElementById('close-player');
-    this.skipForward = document.getElementById('skipForward');
-    this.skipBackward = document.getElementById('skipBackward');
+        // Controlli del player
+        this.retryButton = document.getElementById('retryButton');
+        this.playPauseBtn = document.getElementById('playPauseBtn');
+        this.playIcon = document.getElementById('playIcon');
+        this.volumeBtn = document.getElementById('volumeBtn');
+        this.volumeIcon = document.getElementById('volumeIcon');
+        this.volumeSlider = document.getElementById('volumeSlider');
+        this.currentTime = document.getElementById('currentTime');
+        this.duration = document.getElementById('duration');
+        this.progressBar = document.getElementById('progressBar');
+        this.progressContainer = document.getElementById('progressContainer');
+        this.fullscreenBtn = document.getElementById('fullscreenBtn');
+        this.zoomBtn = document.getElementById('zoomBtn');
+        this.closePlayerBtn = document.getElementById('close-player');
+        this.skipForward = document.getElementById('skipForward');
+        this.skipBackward = document.getElementById('skipBackward');
 
-    // Menu e impostazioni
-    this.settingsBtn = document.getElementById('settingsBtn');
-    this.audioTrackBtn = document.getElementById('audioTrackBtn');
-    this.captionsBtn = document.getElementById('captionsBtn');
-    this.settingsMenu = document.getElementById('settingsMenu');
-    this.audioMenu = document.getElementById('audioMenu');
-    this.captionsMenu = document.getElementById('captionsMenu');
+        // Menu e impostazioni
+        this.settingsBtn = document.getElementById('settingsBtn');
+        this.audioTrackBtn = document.getElementById('audioTrackBtn');
+        this.captionsBtn = document.getElementById('captionsBtn');
+        this.settingsMenu = document.getElementById('settingsMenu');
+        this.audioMenu = document.getElementById('audioMenu');
+        this.captionsMenu = document.getElementById('captionsMenu');
 
-    // 👇 AGGIUNTA: eventi per mostrare i controlli
-    this.videoPlayer.addEventListener('mousemove', () => this.showControls());
-    this.videoPlayer.addEventListener('touchstart', () => this.showControls());
-
-    this.initEventListeners();
-}
-
-showControls() {
-    this.controlsContainer.style.opacity = '1';
-    this.backButtonContainer.style.opacity = '1';
-    this.startControlsTimeout();
-}
-
-startControlsTimeout() {
-    clearTimeout(this.controlsTimeout);
-    this.controlsTimeout = setTimeout(() => {
-        this.controlsContainer.style.opacity = '0';
-        this.backButtonContainer.style.opacity = '0';
-    }, 3000);
-}
-
+        this.initEventListeners();
+    }
 
     async play(content) {
         this.content = content;
         this.updatePlayerTitle();
         this.playerModal.classList.remove('hidden');
+            this.showControlsTemporarily(); // Mostra i controlli immediatamente
+
         await this.initPlayer();
-        this.requestFullscreen();
     }
 
     updatePlayerTitle() {
@@ -113,9 +95,11 @@ startControlsTimeout() {
                 
                 this.hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
     this.loadingOverlay.classList.add('hidden');
-    this.videoPlayer.play().then(() => {
-        setTimeout(() => this.requestFullscreen(), 100);
-    });
+                this.videoPlayer.play().catch(error => {
+                    console.error('Autoplay failed:', error);
+                    // Mostra i controlli per permettere all'utente di avviare manualmente
+                    this.showControlsTemporarily();
+                });
 
     this.setupQualityOptions();
 
@@ -238,8 +222,20 @@ startControlsTimeout() {
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => this.handleKeyDown(e));
         
-        // Mouse movement for controls
-        this.videoPlayer.addEventListener('mousemove', () => this.showControlsTemporarily());
+    this.videoPlayer.addEventListener('mousemove', () => this.showControlsTemporarily());
+    this.videoPlayer.addEventListener('touchmove', () => this.showControlsTemporarily());
+    
+    // Nascondi controlli quando il video inizia a riprodurre
+    this.videoPlayer.addEventListener('play', () => {
+        this.showControlsTemporarily();
+    });
+    
+    // Mostra sempre i controlli quando il video è in pausa
+    this.videoPlayer.addEventListener('pause', () => {
+        this.controlsContainer.style.opacity = '1';
+        this.backButtonContainer.style.opacity = '1';
+        clearTimeout(this.controlsTimeout);
+    });
     }
 
     // Metodi per la gestione del player
@@ -435,16 +431,27 @@ handleMenuSelection(e) {
     }
 }
 
-
-    showControlsTemporarily() {
-        this.controlsContainer.style.opacity = '1';
-        this.backButtonContainer.style.opacity = '1';
-        clearTimeout(this.controlsTimeout);
-        this.controlsTimeout = setTimeout(() => {
-            this.controlsContainer.style.opacity = '0';
-            this.backButtonContainer.style.opacity = '0';
-        }, 3000);
-    }
+showControlsTemporarily() {
+    // Aggiungi classi
+    this.controlsContainer.classList.add('visible');
+    this.backButtonContainer.classList.add('visible');
+    
+    // Rimuovi qualsiasi stile inline che potrebbe sovrascrivere
+    this.controlsContainer.style.removeProperty('opacity');
+    this.backButtonContainer.style.removeProperty('opacity');
+    
+    clearTimeout(this.controlsTimeout);
+    
+    this.controlsTimeout = setTimeout(() => {
+        if (!this.videoPlayer.paused && !this.isSeeking) {
+            // Rimuovi classi invece di modificare lo stile
+            this.controlsContainer.classList.remove('visible');
+            this.backButtonContainer.classList.remove('visible');
+            
+            console.log('Controlli nascosti con successo'); // Debug
+        }
+    }, 3000);
+}
 
     handleKeyDown(e) {
         if (document.activeElement.tagName === 'INPUT') return;
@@ -572,6 +579,6 @@ function playMovie(content, type = null) {
         ...content,
         media_type: content.media_type || type || 'movie'
     };
-    enterFullscreen(); // ✅ Aggiunto qui
+	 enterFullscreen(); // ✅ Aggiunto qui
     videoPlayerInstance.play(playerContent);
 }
