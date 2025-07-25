@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bambini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      padding: 20px;
+      color: #e50914;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #e50914, 0 0 40px #fff;
+    }
+    .griglia {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .canale {
+      background-color: #222;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 220px;
+      padding: 0;
+      overflow: hidden;
+    }
+    .canale:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px #e50914;
+    }
+    .canale img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background-color: #000;
+    }
+    .canale p {
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1em;
+      margin: 0;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bambini</h1>
+  <div class="griglia">
+    
+      <a class="canale" href="DEAKIDS.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/dea-kids-it.png" alt="DEAKIDS">
+        <p>DEAKIDS</p>
+      </a>
+
+      <a class="canale" href="NICKELODEON.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/nickelodeon-it.png" alt="NICKELODEON">
+        <p>NICKELODEON</p>
+      </a>
+
+      <a class="canale" href="BOOMERANG.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/boomerang-it.png" alt="BOOMERANG">
+        <p>BOOMERANG</p>
+      </a>
+
+  </div>
+</body>
+</html>

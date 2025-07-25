@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cinema</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      padding: 20px;
+      color: #e50914;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #e50914, 0 0 40px #fff;
+    }
+    .griglia {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .canale {
+      background-color: #222;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 220px;
+      padding: 0;
+      overflow: hidden;
+    }
+    .canale:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px #e50914;
+    }
+    .canale img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background-color: #000;
+    }
+    .canale p {
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1em;
+      margin: 0;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cinema</h1>
+  <div class="griglia">
+    
+      <a class="canale" href="SKY_CINEMA_UNO.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-uno-it.png" alt="SKY CINEMA UNO">
+        <p>SKY CINEMA UNO</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_UNO_(FHD).html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-uno-it.png" alt="SKY CINEMA UNO (FHD)">
+        <p>SKY CINEMA UNO (FHD)</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_DUE.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-due-it.png" alt="SKY CINEMA DUE">
+        <p>SKY CINEMA DUE</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_DUE_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-due-it.png" alt="SKY CINEMA DUE FHD">
+        <p>SKY CINEMA DUE FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_COMEDY.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-comedy-it.png" alt="SKY CINEMA COMEDY">
+        <p>SKY CINEMA COMEDY</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_COMEDY_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-comedy-it.png" alt="SKY CINEMA COMEDY FHD">
+        <p>SKY CINEMA COMEDY FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_ACTION.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-action-it.png" alt="SKY CINEMA ACTION">
+        <p>SKY CINEMA ACTION</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_ACTION_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-action-it.png" alt="SKY CINEMA ACTION FHD">
+        <p>SKY CINEMA ACTION FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_FAMILY.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-family-it.png" alt="SKY CINEMA FAMILY">
+        <p>SKY CINEMA FAMILY</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_FAMILY_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-family-it.png" alt="SKY CINEMA FAMILY FHD">
+        <p>SKY CINEMA FAMILY FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_COLLECTION.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-collection-it.png" alt="SKY CINEMA COLLECTION">
+        <p>SKY CINEMA COLLECTION</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_COLLECTION_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-collection-it.png" alt="SKY CINEMA COLLECTION FHD">
+        <p>SKY CINEMA COLLECTION FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_DRAMA.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-drama-it.png" alt="SKY CINEMA DRAMA">
+        <p>SKY CINEMA DRAMA</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_DRAMA_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-drama-it.png" alt="SKY CINEMA DRAMA FHD">
+        <p>SKY CINEMA DRAMA FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_SUSPENSE.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-suspense-it.png" alt="SKY CINEMA SUSPENSE">
+        <p>SKY CINEMA SUSPENSE</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_SUSPENSE_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-suspense-it.png" alt="SKY CINEMA SUSPENSE FHD">
+        <p>SKY CINEMA SUSPENSE FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_ROMANCE.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-romance-it.png" alt="SKY CINEMA ROMANCE">
+        <p>SKY CINEMA ROMANCE</p>
+      </a>
+
+      <a class="canale" href="SKY_CINEMA_ROMANCE_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-cinema-romance-it.png" alt="SKY CINEMA ROMANCE FHD">
+        <p>SKY CINEMA ROMANCE FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_SERIE.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-serie-it.png" alt="SKY SERIE">
+        <p>SKY SERIE</p>
+      </a>
+
+      <a class="canale" href="SKY_SERIE_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-serie-it.png" alt="SKY SERIE FHD">
+        <p>SKY SERIE FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_ATLANTIC.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-atlantic-it.png" alt="SKY ATLANTIC">
+        <p>SKY ATLANTIC</p>
+      </a>
+
+      <a class="canale" href="SKY_ATLANTIC_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-atlantic-it.png" alt="SKY ATLANTIC FHD">
+        <p>SKY ATLANTIC FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_CRIME.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-crime-it.png" alt="SKY CRIME">
+        <p>SKY CRIME</p>
+      </a>
+
+      <a class="canale" href="SKY_CRIME_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-crime-it.png" alt="SKY CRIME FHD">
+        <p>SKY CRIME FHD</p>
+      </a>
+
+      <a class="canale" href="SKY_INVESTIGATION.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-investigation-it.png" alt="SKY INVESTIGATION">
+        <p>SKY INVESTIGATION</p>
+      </a>
+
+      <a class="canale" href="SKY_INVESTIGATION_FHD.html">
+        <img src="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/italy/sky-investigation-it.png" alt="SKY INVESTIGATION FHD">
+        <p>SKY INVESTIGATION FHD</p>
+      </a>
+
+  </div>
+</body>
+</html>
