@@ -38,7 +38,7 @@
 </head>
 <body>
   <div id="video-container">
-    <video id="video" autoplay muted poster="https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png" tabindex="0"></video>
+    <video id="video" autoplay poster="https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png" tabindex="0"></video>
     <div id="overlay"></div>
   </div>
 
@@ -59,6 +59,10 @@
         overlay.style.display = 'none';
       }, 3000);
     }
+    
+     // 🔊 Forza audio attivo all'avvio
+    video.muted = false;
+    video.volume = 1.0;
 
     function formatTime(seconds) {
       const min = Math.floor(seconds / 60);
@@ -120,6 +124,16 @@
             video.currentTime = Math.min(video.currentTime + 10, video.duration);
             showOverlay(`⏩ ${formatTime(video.currentTime)}`);
             break;
+            
+          case 'arrowup':
+            video.volume = Math.min(video.volume + 0.1, 1);
+            showOverlay("🔊 Volume: " + Math.round(video.volume * 100) + "%");
+            break;
+
+          case 'arrowdown':
+            video.volume = Math.max(video.volume - 0.1, 0);
+            showOverlay("🔉 Volume: " + Math.round(video.volume * 100) + "%");
+            break;  
 
           case ' ':
             event.preventDefault();
@@ -168,11 +182,14 @@
               showOverlay(`Audio: ${selectedAudio.language}${selectedAudio.roles.length ? ' (' + selectedAudio.roles.join(', ') + ')' : ''}`);
             }
             break;
-
+          
           case '5':
             video.muted = !video.muted;
             showOverlay(`Audio ${video.muted ? 'disattivato' : 'attivato'}`);
             break;
+            
+            
+            
         }
       });
     }
