@@ -50,6 +50,7 @@
     const video = document.getElementById('video');
     const container = document.getElementById('video-container');
     const overlay = document.getElementById('overlay');
+    let audioIndex = 0;
 
     function showOverlay(text) {
       overlay.textContent = text;
@@ -109,24 +110,68 @@
               showOverlay(`Timeline: ${formatTime(video.currentTime)} / ${formatTime(video.duration)}`);
             }
             break;
+
           case 'arrowleft':
             video.currentTime = Math.max(video.currentTime - 10, 0);
             showOverlay(`⏪ ${formatTime(video.currentTime)}`);
             break;
+
           case 'arrowright':
             video.currentTime = Math.min(video.currentTime + 10, video.duration);
             showOverlay(`⏩ ${formatTime(video.currentTime)}`);
             break;
+
           case ' ':
             event.preventDefault();
             video.paused ? video.play() : video.pause();
             break;
+
           case 'f':
             if (document.fullscreenElement) {
               document.exitFullscreen();
             } else {
               container.requestFullscreen();
             }
+            break;
+
+          case '1':
+            const isVisible = player.isTextTrackVisible();
+            const textTracks = player.getTextTracks();
+            if (!isVisible && textTracks.length > 0) {
+              player.selectTextTrack(textTracks[0]);
+            }
+            player.setTextTrackVisibility(!isVisible);
+            showOverlay(`Sottotitoli: ${player.isTextTrackVisible() ? 'ON' : 'OFF'}`);
+            break;
+
+          case '2':
+            const currentTrack = player.getVariantTracks().find(t => t.active);
+            if (currentTrack) {
+              const sameLangTracks = player.getVariantTracks().filter(t => t.language === currentTrack.language);
+              const currentIndex = sameLangTracks.findIndex(t => t.id === currentTrack.id);
+              const nextIndex = (currentIndex + 1) % sameLangTracks.length;
+              const nextTrack = sameLangTracks[nextIndex];
+              player.configure({ abr: { enabled: false } });
+              player.selectVariantTrack(nextTrack, true);
+              showOverlay(`Risoluzione: ${nextTrack.height}p`);
+            }
+            break;
+
+          case '3':
+            const audioTracks = player.getVariantTracks().filter(t => t.audioBandwidth);
+            if (audioTracks.length > 0) {
+              audioIndex = (audioIndex + 1) % audioTracks.length;
+              const selectedAudio = audioTracks[audioIndex];
+              player.configure({ abr: { enabled: false } });
+              player.selectVariantTrack(selectedAudio, true);
+              video.play();
+              showOverlay(`Audio: ${selectedAudio.language}${selectedAudio.roles.length ? ' (' + selectedAudio.roles.join(', ') + ')' : ''}`);
+            }
+            break;
+
+          case '5':
+            video.muted = !video.muted;
+            showOverlay(`Audio ${video.muted ? 'disattivato' : 'attivato'}`);
             break;
         }
       });
