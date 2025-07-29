@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NOTIZIE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      padding: 20px;
+      color: #e50914;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #e50914, 0 0 40px #fff;
+    }
+    .griglia {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .canale {
+      background-color: #222;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 220px;
+      padding: 0;
+      overflow: hidden;
+    }
+    .canale:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px #e50914;
+    }
+    .canale img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background-color: #000;
+    }
+    .canale p {
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1em;
+      margin: 0;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>NOTIZIE</h1>
+  <div class="griglia">
+    
+      <a class="canale" href="https://ilglobotv-live.akamaized.net/channels/RAINews24/Live.m3u8">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Rai_News_24_logo_%282022%29.svg/260px-Rai_News_24_logo_%282022%29.svg.png" alt="Rai News 24">
+        <p>Rai News 24</p>
+      </a>
+	   <a class="canale" href="tg24.html">
+        <img src="http://odmsto.com/uploads/tv_image/sm/tgcom24.png" alt="TG 24">
+        <p>TGcom24</p>
+      </a>
+	  
+	  
+	  <a class="canale" href="skytg24.html">
+        <img src="https://play-lh.googleusercontent.com/0RJjBW8_r64dWLAbG7kUVrkESbBr9Ukx30pDI83e5_o1obv2MTC7KSpBAIhhXvJAkXE" alt="SKY TG 24 FHD">
+        <p>SKY TG 24</p>
+      </a>
+	  
+
+
+      <a class="canale" href="https://09bd1346f7a44cc9ac230cc1cb22ca4f.msvdn.net/live/S39249178/EnTK3KeeN1Eg/playlist.m3u8">
+        <img src="https://www.lyngsat.com/logo/tv/bb/byoblu-it.png" alt="Byobluhttps://09bd1346f7a44cc9ac230cc1cb22ca4f.msvdn.net/live/S39249178/EnTK3KeeN1Eg/playlist.m3u8">
+        <p>Byoblu</p>
+      </a>
+
+      <a class="canale" href="http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/61b86ea479a4390007c6d5fc/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Euronews_2022.svg/330px-Euronews_2022.svg.png" alt="Euronews">
+        <p>Euronews</p>
+      </a>
+
+  </div>
+</body>
+</html>

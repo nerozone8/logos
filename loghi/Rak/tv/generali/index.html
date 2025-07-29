@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>dtt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.2; /* controlla la trasparenza */
+  pointer-events: none;
+  z-index: -1;
+}
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      padding: 20px;
+      color: #e50914;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #e50914, 0 0 40px #fff;
+    }
+
+    .menu {
+      background-color: #000;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .menu ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin: 0 15px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #e50914;
+    }
+
+    .griglia {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 2fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .canale {
+  background-color: #222;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 220px; /* altezza uniforme */
+  padding: 0;
+  overflow: hidden;
+}
+
+    .canale:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px #e50914;
+    }
+
+  .canale img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background-color: #000;
+    }
+
+    .canale p {
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0;
+  flex-shrink: 0;
+  
+}
+ 
+ 
+ .canale a {
+  text-decoration: none;
+  color: inherit;
+  
+}
+
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: #e50914;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 3s ease-in forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+</style>
+</head>
+<body>
+   
+    <h1>DTT</h1>
+  <div class="griglia" id="intrattenimento">
+  
+   <a class="canale" href="go:guidatvdtt">
+	  <img src="https://guidatv.org/assets/logo.svg" alt="guida tv">
+	  <p>Guida Tv</p>
+	  </a>
+  
+  
+    <a class="canale" href="rai1.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Rai_1_-_Logo_2016.svg/1280px-Rai_1_-_Logo_2016.svg.png" alt="Rai 1">
+        <p>Rai 1</p>
+      </a>
+    
+      <a class="canale" href="rai2.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rai_2_-_Logo_2016.svg/1280px-Rai_2_-_Logo_2016.svg.png" alt="Rai 2">
+        <p>Rai 2</p>
+      </a>
+    
+      <a class="canale" href="rai3.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rai_3_-_Logo_2016.svg/1280px-Rai_3_-_Logo_2016.svg.png" alt="Rai 3">
+        <p>Rai 3</p>
+      </a>
+	  
+	  <a class="canale" href="rete4.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Rete_4_-_Logo_2018.svg/390px-Rete_4_-_Logo_2018.svg.png" alt="Rete 4">
+        <p>Rete 4</p>
+      </a>
+	  
+	   <a class="canale" href="canale5.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Canale_5_-_2018_logo.svg/390px-Canale_5_-_2018_logo.svg.png" alt="Canale 5">
+        <p>Canale 5</p>
+      </a>
+    	
+      <a class="canale" href="italia1.html">
+        <img src="https://upload.wikimedia.org/wikipedia/it/thumb/3/30/Logo_Italia_1.svg/390px-Logo_Italia_1.svg.png" alt="Italia 1">
+        <p>Italia 1</p>
+      </a>
+	
+      <a class="canale" href="la7.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/LA7_-_Logo_2011.svg/260px-LA7_-_Logo_2011.svg.png" alt="la7">
+        <p>La 7</p>
+      </a>
+	  
+	  <a class="canale" href="https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11223/tv8web/master.m3u8?hdnea=st=1701861650~exp=1765449000~acl=/*~hmac=84c9f3f71e57b13c3a67afa8b29a8591ea9ed84bf786524399545d94be1ec04d">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dedd2623362929.56322905020bb.jpg" alt="tv8">
+        <p>TV8</p>
+		
+	  <a class="canale" href="nove.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nove_-_Logo_2017.svg/390px-Nove_-_Logo_2017.svg.png" alt="NOVE">
+        <p>NOVE</p>
+      </a>
+
+	  <a class="canale" href="20.html">
+        <img src="https://www.hardware-programmi.com/wp-content/uploads/2018/04/mediaset-canale-20-streaming.jpg" alt="Mediaset 20">
+        <p>Mediaset 20</p>
+      </a>
+	  
+	  <a class="canale" href="https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746966&output=7">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Rai_4_-_Logo_2016.svg/640px-Rai_4_-_Logo_2016.svg.png" alt="Rai 4">
+        <p>Rai 4</p>
+      </a>
+	  
+	  <a class="canale" href="iris.html">
+        <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple112/v4/e9/87/23/e9872398-d4de-d5f4-dd29-11464d670bf0/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" alt="Iris">
+        <p>Iris</p>
+      </a>
+	  
+	  <a class="canale" href="rai5.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Rai_5_-_Logo_2017.svg/640px-Rai_5_-_Logo_2017.svg.png" alt="Rai 5">
+        <p>Rai 5</p>
+      </a>
+	  
+	  <a class="canale" href="movie.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Rai_Movie_Logo_%282010%29.svg/640px-Rai_Movie_Logo_%282010%29.svg.png" alt="Rai Movie">
+        <p>Rai Movie</p>
+	  </a>
+		
+	  <a class="canale" href="premium.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Rai_Premium_HD_-_Logo_2017.svg/1200px-Rai_Premium_HD_-_Logo_2017.svg.png" alt="Rai Premium">
+        <p>Rai Premium</p>
+      </a>	
+	
+	  <a class="canale" href="https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11219/cieloweb/master.m3u8?hdnea=st=1701861650~exp=1765449000~acl=/*~hmac=84c9f3f71e57b13c3a67afa8b29a8591ea9ed84bf786524399545d94be1ec04d">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Cielo_TV_logo_2013.svg/260px-Cielo_TV_logo_2013.svg.png" alt="Cielo">
+        <p>Cielo</p>
+      </a>	
+	  
+	  <a class="canale" href="27.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Twentyseven_logo.svg/390px-Twentyseven_logo.svg.png" alt="TwentySeven">
+        <p>TwentySeven</p>
+      </a>
+	  
+	<a class="canale" href="https://hls-live-tv2000.akamaized.net/hls/live/2028510/tv2000/master.m3u8">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Tv2000_-_Logo_2022.svg/197px-Tv2000_-_Logo_2022.svg.png" alt="TwentySeven">
+        <p>Tv 2000</p>
+      </a>  
+	
+    <a class="canale" href="la7d.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/LA7d_%282024%29.svg/260px-LA7d_%282024%29.svg.png" alt="TwentySeven">
+        <p>La7d</p>
+      </a>
+	
+	 <a class="canale" href="la5.html">
+        <img src="https://upload.wikimedia.org/wikipedia/it/thumb/6/64/La5_Italy.svg/390px-La5_Italy.svg.png" alt="La 5">
+        <p>La 5</p>
+      </a>
+    
+	 <a class="canale" href="realtime.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Real_Time_logo.svg/390px-Real_Time_logo.svg.png" alt="Real Time">
+        <p>Real Time</p>
+      </a>
+	  
+	  <a class="canale" href="https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/QVC_logo_2019.svg/260px-QVC_logo_2019.svg.png" alt="QVC">
+        <p>QVC</p>
+      </a>
+      
+	  <a class="canale" href="food.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Food_Network_-_Logo_2016.png" alt="Food Network">
+        <p>Food Network</p>
+      </a>
+	  
+	  <a class="canale" href="cine34.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cine34_logo.svg/390px-Cine34_logo.svg.png" alt="Cine34">
+        <p>Cine34</p>
+      </a>
+	  
+	  <a class="canale" href="go:focus">
+        <img src="https://upload.wikimedia.org/wikipedia/it/thumb/1/11/Focus_Logo.svg/390px-Focus_Logo.svg.png" alt="Focus">
+        <p>Focus</p>
+      </a>
+    <a class="canale" href="topcrime.html">
+        <img src="http://www.tuttotv.info/wp-content/uploads/2015/11/top-crime.jpg" alt="Top Crime">
+        <p>Top Crime</p>
+      </a>
+    
+      <a class="canale" href="italia2.html">
+        <img src="https://www.digitaleterrestrefacile.it/wp-content/uploads/2018/05/mediaset-italia-2.jpg" alt="Italia 2">
+        <p>Italia 2</p>
+      </a>
+    
+      <a class="canale" href="extra.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mediaset_Extra_logo.svg/390px-Mediaset_Extra_logo.svg.png" alt="Mediaset Extra">
+        <p>Mediaset Extra</p>
+      </a>
+	  	     
+      <a class="canale" href="warner.html">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7519b96c-71f8-4040-82d4-c80e18384f1b/dhjwz0h-79714bfc-8c89-4b20-9671-afd6d37861c5.png/v1/fill/w_948,h_843/warner_bros__television_logo_2024__90s_style__by_wbblackofficial_dhjwz0h-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTEzOSIsInBhdGgiOiJcL2ZcLzc1MTliOTZjLTcxZjgtNDA0MC04MmQ0LWM4MGUxODM4NGYxYlwvZGhqd3owaC03OTcxNGJmYy04Yzg5LTRiMjAtOTY3MS1hZmQ2ZDM3ODYxYzUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.eG8yzGoXebT4g8e9Px_VT3YKlM_Bdee6e3kB00cyut4" alt="Warner TV">
+        <p>Warner TV</p>
+      </a>
+    
+      <a class="canale" href="giallo.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Giallo_-_Logo_2014.svg/390px-Giallo_-_Logo_2014.svg.png" alt="Giallo">
+        <p>Giallo</p>
+      </a>
+	  
+	  <a class="canale" href="dmax.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/DMAX_-_Logo_2016.svg/390px-DMAX_-_Logo_2016.svg.png" alt="DMAX">
+        <p>DMAX</p>
+      </a>
+    
+      <a class="canale" href="hgtv.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/HGTV_logo.svg/390px-HGTV_logo.svg.png" alt="HGTV - Home&Garden">
+        <p>HGTV - Home&Garden</p>
+      </a>
+    
+      <a class="canale" href="motortrend.html">
+        <img src="https://www.antennista-tv.com/images/news/logo-canale-motor-trend.png" alt="Motor Trend">
+        <p>Motor Trend</p>
+      </a>
+      
+      
+    
+      
+    
+      
+    
+     
+      
+	
+  </div>
+</body>
+</html>
