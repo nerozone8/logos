@@ -83,12 +83,12 @@
 
       player.configure({
         drm: {
-          clearKeys: { "111841184b7b87adb146e46184646277":"c527d23a8213c969b344ca9bede8cc73" }
+          clearKeys: { "1115df8d6727807787e98c0ceae1ee6c":"f4b9e52e3f31f1fa41850de4799ca4e3" }
         }
       });
 
       try {
-        await player.load("https://g006-lin-it-cmaf-prd-xa.pcdn07.cssott02.com/nowitlin1/Content/CMAF_CTR_H1/Live/channel(tg24)/master_2hr-all.mpd");
+        await player.load("https://g003-lin-it-cmaf-prd-sn.pcdn07.cssott02.com/v~1-0-0_e~1754062730_f~0_g~1_s~5004f752-ebdf-4a2b-9677-29ae4a82b578_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_k~A_l~50_x~22dc8235f0e32bafd6fde95283a23413/nowitlin1/Content/CMAF_CTR_S1/Live/channel(tg24)/master_2hr-aac.mpd");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);
