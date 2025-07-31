@@ -50,9 +50,7 @@
     const video = document.getElementById('video');
     const container = document.getElementById('video-container');
     const overlay = document.getElementById('overlay');
-
-    video.muted = false;
-    video.volume = 1.0;
+    let audioIndex = 0;
 
     function showOverlay(text) {
       overlay.textContent = text;
@@ -61,6 +59,10 @@
         overlay.style.display = 'none';
       }, 3000);
     }
+    
+     // 🔊 Forza audio attivo all'avvio
+    video.muted = false;
+    video.volume = 1.0;
 
     function formatTime(seconds) {
       const min = Math.floor(seconds / 60);
@@ -88,7 +90,7 @@
       });
 
       try {
-        await player.load("https://g003-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/nowitlin1/Content/CMAF_CTR_S1/Live/channel(nickjunior)/master_2hr-aac.mpd?c3.ri=13673074801738378064");
+        await player.load("https://g003-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/v~a-0-0_e~1754079205_s~6c2282e9-fb50-48e2-8f56-2d1b88fbf372_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_l~56_x~f9b48c4655b0fc9879c5bec169cdea18b1fa136066310ed77a85f3759ab091f1/nowitlin1/Content/CMAF_CTR_S1/Live/channel(nickjunior)/master_2hr-aac.mpd?t=v2&c3.ri=1b1356924f0023d1_78ccb5748f-c75dq_CVX06");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);
@@ -122,9 +124,9 @@
             video.currentTime = Math.min(video.currentTime + 10, video.duration);
             showOverlay(`⏩ ${formatTime(video.currentTime)}`);
             break;
-
+            
           case 'arrowup':
-            const isVisible = player.isTextTrackVisible();
+             const isVisible = player.isTextTrackVisible();
             const textTracks = player.getTextTracks();
             if (!isVisible && textTracks.length > 0) {
               player.selectTextTrack(textTracks[0]);
@@ -150,6 +152,8 @@
             event.preventDefault();
             video.paused ? video.play() : video.pause();
             break;
+ 
+            
         }
       });
     }

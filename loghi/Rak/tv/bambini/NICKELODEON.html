@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NICKELODEON</title>
+  <title>Nickelodeon</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.11.2/controls.min.css" />
   <style>
     html, body {
@@ -90,7 +90,7 @@
       });
 
       try {
-        await player.load("https://g003-lin-it-cmaf-prd-xa.pcdn07.cssott02.com/nowitlin1/Content/CMAF_CTR_S1/Live/channel(nickelodeon)/master_2hr-aac.mpd");
+        await player.load("https://g003-lin-it-cmaf-prd-cf.pcdn07.cssott02.com/v~1-0-0_e~1754079094_f~0_g~1_s~d801d242-72c2-4d4c-8dbd-55e0296b0669_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_k~A_l~57_x~0c30c723132385dfd7a2d10578f1c73a/nowitlin1/Content/CMAF_CTR_S1/Live/channel(nickelodeon)/master_2hr-aac.mpd?t=v1&c3.ri=13694189409388156517");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);
@@ -126,30 +126,7 @@
             break;
             
           case 'arrowup':
-            video.volume = Math.min(video.volume + 0.1, 1);
-            showOverlay("🔊 Volume: " + Math.round(video.volume * 100) + "%");
-            break;
-
-          case 'arrowdown':
-            video.volume = Math.max(video.volume - 0.1, 0);
-            showOverlay("🔉 Volume: " + Math.round(video.volume * 100) + "%");
-            break;  
-
-          case ' ':
-            event.preventDefault();
-            video.paused ? video.play() : video.pause();
-            break;
-
-          case 'f':
-            if (document.fullscreenElement) {
-              document.exitFullscreen();
-            } else {
-              container.requestFullscreen();
-            }
-            break;
-
-          case '1':
-            const isVisible = player.isTextTrackVisible();
+             const isVisible = player.isTextTrackVisible();
             const textTracks = player.getTextTracks();
             if (!isVisible && textTracks.length > 0) {
               player.selectTextTrack(textTracks[0]);
@@ -158,7 +135,7 @@
             showOverlay(`Sottotitoli: ${player.isTextTrackVisible() ? 'ON' : 'OFF'}`);
             break;
 
-          case '2':
+          case 'arrowdown':
             const currentTrack = player.getVariantTracks().find(t => t.active);
             if (currentTrack) {
               const sameLangTracks = player.getVariantTracks().filter(t => t.language === currentTrack.language);
@@ -171,24 +148,11 @@
             }
             break;
 
-          case '3':
-            const audioTracks = player.getVariantTracks().filter(t => t.audioBandwidth);
-            if (audioTracks.length > 0) {
-              audioIndex = (audioIndex + 1) % audioTracks.length;
-              const selectedAudio = audioTracks[audioIndex];
-              player.configure({ abr: { enabled: false } });
-              player.selectVariantTrack(selectedAudio, true);
-              video.play();
-              showOverlay(`Audio: ${selectedAudio.language}${selectedAudio.roles.length ? ' (' + selectedAudio.roles.join(', ') + ')' : ''}`);
-            }
+          case ' ':
+            event.preventDefault();
+            video.paused ? video.play() : video.pause();
             break;
-          
-          case '5':
-            video.muted = !video.muted;
-            showOverlay(`Audio ${video.muted ? 'disattivato' : 'attivato'}`);
-            break;
-            
-            
+ 
             
         }
       });

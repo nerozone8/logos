@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boomerang</title>
+  <title>Sky Sport 255</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.11.2/controls.min.css" />
   <style>
     html, body {
@@ -85,12 +85,12 @@
 
       player.configure({
         drm: {
-          clearKeys: { "1115cc41a0daf57a22c1c81bd139b559": "31347f9bbc90713e972249b54ec882b2" }
+          clearKeys: { "11185f7f78307d91e36803f72663b517": "d09f471173d6c7a82105abf216cd919c" }
         }
       });
 
       try {
-        await player.load("https://g003-lin-it-cmaf-prd-sn.pcdn07.cssott02.com/v~1-0-0_e~1754079184_f~0_g~1_s~6c902261-e91e-422c-b13b-6abe3a800f19_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_k~A_l~55_x~d83ce227ec17dd711a3a035361502183/nowitlin1/Content/CMAF_CTR_S1/Live/channel(boomerang)/master_2hr-aac.mpd?t=v1&c3.ri=13694752362630865754");
+        await player.load("https://g006-lin-it-cmaf-prd-xa.pcdn07.cssott02.com/nowitlin1/Content/CMAF_CTR_H1/Live/channel(skysport255)/master_2hr-all.mpd");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);

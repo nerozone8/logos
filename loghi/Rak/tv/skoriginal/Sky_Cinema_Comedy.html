@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boomerang</title>
+  <title>Sky Cinema Comedy</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.11.2/controls.min.css" />
   <style>
     html, body {
@@ -85,12 +85,12 @@
 
       player.configure({
         drm: {
-          clearKeys: { "1115cc41a0daf57a22c1c81bd139b559": "31347f9bbc90713e972249b54ec882b2" }
+          clearKeys: { "1115676eca79233f2919b53f1a1709b8": "72298a31b1b015b52adc03ab222494c2" }
         }
       });
 
       try {
-        await player.load("https://g003-lin-it-cmaf-prd-sn.pcdn07.cssott02.com/v~1-0-0_e~1754079184_f~0_g~1_s~6c902261-e91e-422c-b13b-6abe3a800f19_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_k~A_l~55_x~d83ce227ec17dd711a3a035361502183/nowitlin1/Content/CMAF_CTR_S1/Live/channel(boomerang)/master_2hr-aac.mpd?t=v1&c3.ri=13694752362630865754");
+        await player.load("https://g003-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/v~a-0-0_e~1754078667_s~7bde052a-ce96-49a4-8759-a861c387b586_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_l~61_x~082e23e6a20cf7ade2f05d5c7be0b734002fe32bc5a42dc311d894f53201d0f4/nowitlin1/Content/CMAF_CTR_S1/Live/channel(skycinemacomedy)/master_2hr-aac.mpd?t=v2&c3.ri=1b1354855d000733_755d7c96df-zgkl8_CVX06");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);

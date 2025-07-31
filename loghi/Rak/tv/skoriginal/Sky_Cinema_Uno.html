@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boomerang</title>
+  <title>Sky Cinema Uno</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.11.2/controls.min.css" />
   <style>
     html, body {
@@ -85,12 +85,12 @@
 
       player.configure({
         drm: {
-          clearKeys: { "1115cc41a0daf57a22c1c81bd139b559": "31347f9bbc90713e972249b54ec882b2" }
+          clearKeys: { "111571675d8183ed169725564cded6d9": "e077dedf383c8aed73d38567a8e6a046" }
         }
       });
 
       try {
-        await player.load("https://g003-lin-it-cmaf-prd-sn.pcdn07.cssott02.com/v~1-0-0_e~1754079184_f~0_g~1_s~6c902261-e91e-422c-b13b-6abe3a800f19_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_k~A_l~55_x~d83ce227ec17dd711a3a035361502183/nowitlin1/Content/CMAF_CTR_S1/Live/channel(boomerang)/master_2hr-aac.mpd?t=v1&c3.ri=13694752362630865754");
+        await player.load("https://g003-lin-it-cmaf-prd-cf.pcdn07.cssott02.com/v~1-0-0_e~1754078612_f~0_g~1_s~df980088-197e-4015-89d8-415e92d3943a_u~4596d5573343fedf07cd0fa24a7d438251afec59d0d5247411495ed5d3c3e535_k~A_l~58_x~03b163651282b2e0c21f4cbfaa1fb4cb/nowitlin1/Content/CMAF_CTR_S1/Live/channel(skycinemauno)/master_2hr-aac.mpd?t=v1&c3.ri=1b13544fa2400733_755d7c96df-zgkl8_CVX06");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);

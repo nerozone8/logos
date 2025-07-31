@@ -50,9 +50,7 @@
     const video = document.getElementById('video');
     const container = document.getElementById('video-container');
     const overlay = document.getElementById('overlay');
-
-    video.muted = false;
-    video.volume = 1.0;
+    let audioIndex = 0;
 
     function showOverlay(text) {
       overlay.textContent = text;
@@ -61,6 +59,10 @@
         overlay.style.display = 'none';
       }, 3000);
     }
+    
+     // 🔊 Forza audio attivo all'avvio
+    video.muted = false;
+    video.volume = 1.0;
 
     function formatTime(seconds) {
       const min = Math.floor(seconds / 60);
@@ -88,7 +90,7 @@
       });
 
       try {
-        await player.load("https://timlivetu0.cb.ticdn.it/Content/DASH/Live/channel(k2)/manifest.mpd");
+        await player.load("#KODIPROP:inputstream.adaptive.license_key=53e7f0146bca47d188f19d804c670575:1570b26d10120ff32c50693a6ee78584");
         video.play();
       } catch (e) {
         console.error("Errore nel caricamento:", e);
@@ -122,9 +124,9 @@
             video.currentTime = Math.min(video.currentTime + 10, video.duration);
             showOverlay(`⏩ ${formatTime(video.currentTime)}`);
             break;
-
+            
           case 'arrowup':
-            const isVisible = player.isTextTrackVisible();
+             const isVisible = player.isTextTrackVisible();
             const textTracks = player.getTextTracks();
             if (!isVisible && textTracks.length > 0) {
               player.selectTextTrack(textTracks[0]);
@@ -150,6 +152,8 @@
             event.preventDefault();
             video.paused ? video.play() : video.pause();
             break;
+ 
+            
         }
       });
     }
