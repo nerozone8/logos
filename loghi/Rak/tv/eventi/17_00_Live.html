@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>17:00 Live</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: black; }
+      #player { width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="player"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Clappr.Player({
+          source: 'https://mag01.tvx.prd.tv.odido.nl/wh7f454c46tw523693457_1808344289/PLTV/86/224/3221241652/3221241652.mpd',
+          parentId: "#player",
+          autoPlay: true,
+          width: "100%",
+          height: "100%",
+          plugins: [LevelSelector, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
+          
+          shakaConfiguration: {
+            drm: {
+              clearKeys: { "b5c04cfb6da84104ba5bbe51cd065b12": "d96561be4819d3ed4e5f4f54015baaca" }
+            }
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

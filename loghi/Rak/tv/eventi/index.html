@@ -1,109 +1,73 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <title>Index Canali</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #eee;
-      padding: 20px;
-      display: flex;
-      margin: 0;
-      height: 100vh;
-    }
-    h1 {
-      color: #00ff99;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 10px 0;
-    }
-    a {
-      color: #00ccff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .orario {
-      color: #aaa;
-      margin-right: 8px;
-    }
-    .gruppo {
-      color: #66ff66;
-      font-style: italic;
-      margin-left: 10px;
-    }
-    #lista {
-      width: 80%;
-      padding: 20px;
-      overflow-y: auto;
-      background-color: #1a1a1a;
-      border-right: 2px solid #333;
-    }
-    #iframe-container {
-      flex-grow: 1;
-      background-color: black;
-    }
-    
-#iframe-scroll-container {
-  width: 100%;
-  height: 100%;
-  overflow: auto; /* ✅ Permette lo scroll */
-  position: relative;
-}
-
-iframe {
-  width: 100%;
-  height: 2000px; /* 🔧 Imposta un'altezza maggiore se la pagina è lunga */
-  border: none;
-  pointer-events: none; /* 🔒 Disabilita clic */
-}
-
-
-
-
-
-  </style>
-</head>
-<body>
-  <div id="lista">
-    <h1>Eventi</h1>
-    <ul>
-      <li><span class="orario">11:00</span> - <a href="Juventus_-_Reggiana.html" target="_blank">Juventus - Reggiana</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">12:30</span> - <a href="Prove_Libere__3_.html" target="_blank">Prove Libere (3)</a> <span class="gruppo">[FORMULA 1]</span></li>
-      <li><span class="orario">13:00</span> - <a href="Konferenz.html" target="_blank">Konferenz</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:00</span> - <a href="Karlsruher_SC_-_PreuBen_Munster.html" target="_blank">Karlsruher SC - PreuBen Munster</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:00</span> - <a href="Darmstadt_98_-_Bochum.html" target="_blank">Darmstadt 98 - Bochum</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:00</span> - <a href="Elversberg_-_Nurnberg.html" target="_blank">Elversberg - Nurnberg</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:00</span> - <a href="Paderborn_-_Holstein_Kiel.html" target="_blank">Paderborn - Holstein Kiel</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:30</span> - <a href="Konferenz.html" target="_blank">Konferenz</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:30</span> - <a href="Hannover_96_-_Kaiserslautern.html" target="_blank">Hannover 96 - Kaiserslautern</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:30</span> - <a href="Greuther_Furth_-_Dynamo_Dresden.html" target="_blank">Greuther Furth - Dynamo Dresden</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">13:30</span> - <a href="Magdeburg_-_Eintracht_Braunschweig.html" target="_blank">Magdeburg - Eintracht Braunschweig</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">15:00</span> - <a href="RB_Leipzig_-_Atalanta.html" target="_blank">RB Leipzig - Atalanta</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">15:00</span> - <a href="Gara.html" target="_blank">Gara</a> <span class="gruppo">[FORMULA 1]</span></li>
-      <li><span class="orario">15:00</span> - <a href="Gara.html" target="_blank">Gara</a> <span class="gruppo">[FORMULA 1]</span></li>
-      <li><span class="orario">15:00</span> - <a href="Gara_base.html" target="_blank">Gara</a> <span class="gruppo">[FORMULA 1]</span></li>
-      <li><span class="orario">16:00</span> - <a href="Qualifiche.html" target="_blank">Qualifiche</a> <span class="gruppo">[FORMULA 1]</span></li>
-      <li><span class="orario">17:00</span> - <a href="Live.html" target="_blank">Live</a> <span class="gruppo">[TENNIS]</span></li>
-      <li><span class="orario">17:00</span> - <a href="Live.html" target="_blank">Live</a> <span class="gruppo">[TENNIS]</span></li>
-      <li><span class="orario">17:00</span> - <a href="Prove_Libere__2_.html" target="_blank">Prove Libere (2)</a> <span class="gruppo">[FORMULA 1]</span></li>
-      <li><span class="orario">18:00</span> - <a href="Lens_-_Roma.html" target="_blank">Lens - Roma</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">19:00</span> - <a href="Twente_-_Udinese.html" target="_blank">Twente - Udinese</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">20:00</span> - <a href="Galatasaray_-_Lazio.html" target="_blank">Galatasaray - Lazio</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">20:30</span> - <a href="Cagliari_-_Saint-Etienne.html" target="_blank">Cagliari - Saint-Etienne</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">20:30</span> - <a href="Schalke_04_-_Hertha_BSC.html" target="_blank">Schalke 04 - Hertha BSC</a> <span class="gruppo">[CALCIO]</span></li>
-      <li><span class="orario">20:30</span> - <a href="Arminia_Bielefeld_-_Fortuna_Dusseldorf.html" target="_blank">Arminia Bielefeld - Fortuna Dusseldorf</a> <span class="gruppo">[CALCIO]</span></li>
-    </ul>
-  </div>
-  <div id="iframe-scroll-container">
-      <iframe src="eventi.html" allowfullscreen></iframe>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Index Canali</title>
+    <style>
+      body { margin: 0; font-family: sans-serif; background-color: #111; color: #eee; }
+      .container { display: flex; height: 100vh; }
+      .lista {
+        width: 35%;
+        padding: 20px;
+        overflow-y: auto;
+        background-color: #222;
+      }
+      .lista h2 { color: #ffcc00; }
+      .lista a {
+        color: #00ffff;
+        text-decoration: none;
+        display: block;
+        margin: 5px 0;
+      }
+      .lista a:hover { text-decoration: underline; }
+      .iframe-wrapper {
+        width: 65%;
+        height: 100vh;
+        overflow: auto;
+      }
+      .iframe-wrapper iframe {
+        width: 100%;
+        height: 330vh; /* più alto del contenitore per abilitare scroll */
+        border: none;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="lista">
+        <h1>Eventi</h1>
+<h2>CALCIO</h2>
+<a href="11_00_Juventus_-_Reggiana.html" target="_blank" tabindex="0">11:00 Juventus - Reggiana</a>
+<a href="15_00_RB_Leipzig_-_Atalanta.html" target="_blank" tabindex="0">15:00 RB Leipzig - Atalanta</a>
+<a href="18_00_Lens_-_Roma.html" target="_blank" tabindex="0">18:00 Lens - Roma</a>
+<a href="19_00_Twente_-_Udinese.html" target="_blank" tabindex="0">19:00 Twente - Udinese</a>
+<a href="20_00_Galatasaray_-_Lazio.html" target="_blank" tabindex="0">20:00 Galatasaray - Lazio</a>
+<a href="20_30_Cagliari_-_Saint-Etienne.html" target="_blank" tabindex="0">20:30 Cagliari - Saint-Etienne</a>
+<a href="20_30_Schalke_04_-_Hertha_BSC.html" target="_blank" tabindex="0">20:30 Schalke 04 - Hertha BSC</a>
+<a href="13_00_Konferenz.html" target="_blank" tabindex="0">13:00 Konferenz</a>
+<a href="13_00_Karlsruher_SC_-_PreuBen_Munster.html" target="_blank" tabindex="0">13:00 Karlsruher SC - PreuBen Munster</a>
+<a href="13_00_Darmstadt_98_-_Bochum.html" target="_blank" tabindex="0">13:00 Darmstadt 98 - Bochum</a>
+<a href="13_00_Elversberg_-_Nurnberg.html" target="_blank" tabindex="0">13:00 Elversberg - Nurnberg</a>
+<a href="13_00_Paderborn_-_Holstein_Kiel.html" target="_blank" tabindex="0">13:00 Paderborn - Holstein Kiel</a>
+<a href="20_30_Arminia_Bielefeld_-_Fortuna_Dusseldorf.html" target="_blank" tabindex="0">20:30 Arminia Bielefeld - Fortuna Dusseldorf</a>
+<a href="13_30_Konferenz.html" target="_blank" tabindex="0">13:30 Konferenz</a>
+<a href="13_30_Hannover_96_-_Kaiserslautern.html" target="_blank" tabindex="0">13:30 Hannover 96 - Kaiserslautern</a>
+<a href="13_30_Greuther_Furth_-_Dynamo_Dresden.html" target="_blank" tabindex="0">13:30 Greuther Furth - Dynamo Dresden</a>
+<a href="13_30_Magdeburg_-_Eintracht_Braunschweig.html" target="_blank" tabindex="0">13:30 Magdeburg - Eintracht Braunschweig</a>
+<h2>TENNIS</h2>
+<a href="17_00_Live.html" target="_blank" tabindex="0">17:00 Live</a>
+<a href="17_00_Live.html" target="_blank" tabindex="0">17:00 Live</a>
+<h2>FORMULA 1</h2>
+<a href="17_00_Prove_Libere__2_.html" target="_blank" tabindex="0">17:00 Prove Libere (2)</a>
+<a href="12_30_Prove_Libere__3_.html" target="_blank" tabindex="0">12:30 Prove Libere (3)</a>
+<a href="16_00_Qualifiche.html" target="_blank" tabindex="0">16:00 Qualifiche</a>
+<a href="15_00_Gara.html" target="_blank" tabindex="0">15:00 Gara</a>
+<a href="15_00_Gara.html" target="_blank" tabindex="0">15:00 Gara</a>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe src="eventi.html"></iframe>
+      </div>
     </div>
-</body>
+  </body>
 </html>

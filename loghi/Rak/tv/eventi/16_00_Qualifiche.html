@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>16:00 Qualifiche</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: black; }
+      #player { width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="player"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Clappr.Player({
+          source: 'https://linear201-de-dash1-prd-ak.cdn12.skycdp.com/032111-50/index.mpd',
+          parentId: "#player",
+          autoPlay: true,
+          width: "100%",
+          height: "100%",
+          plugins: [LevelSelector, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
+          
+          shakaConfiguration: {
+            drm: {
+              clearKeys: { "000b4b05b463b25ac9474c6b8de9242a": "108e1dc2c98ce68de84cbfd1b1715c03" }
+            }
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
