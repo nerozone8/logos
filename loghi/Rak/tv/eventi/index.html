@@ -4,75 +4,158 @@
     <meta charset="UTF-8">
     <title>Index Canali</title>
     <style>
-      body { margin: 0; font-family: sans-serif; background-color: #111; color: #eee; }
-      .container { display: flex; height: 100vh; }
-      .lista {
-        width: 35%;
-        padding: 20px;
-        overflow-y: auto;
-        background-color: #222;
-      }
-      .lista h2 { color: #ffcc00; }
-      .lista a {
-        color: #00ffff;
-        text-decoration: none;
-        display: block;
-        margin: 5px 0;
-      }
-      .lista a:hover { text-decoration: underline; }
-      .wrap {
-  width: 65%;
-  height: 100vh;
-  overflow-y: scroll;
-  background-color: #000;
-  padding: 0;
-  margin: 0;
+     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.2; /* controlla la trasparenza */
+  pointer-events: none;
+  z-index: -1;
 }
 
-.wrap img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.lista h1 {
+  font-size: 2em;
+  color: #e50914;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px #e50914, 0 0 40px #fff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.lista h2 {
+  font-size: 1.4em;
+  color: #ff9900;
+  margin-top: 20px;
+}
+
+.lista a {
+  color: #00ffff;
+  text-decoration: none;
+  display: block;
+  margin: 6px 0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.lista a:hover {
+  background-color: #00ffff;
+  color: #000;
+}
+
+/* 📱 Portrait mode */
+@media screen and (orientation: portrait) {
+  .lista {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    max-height: 85vh;
+  }
+
+  .lista h1 {
+    font-size: 1.8em;
+  }
+
+  .lista h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* 🖥️ Landscape mode */
+@media screen and (orientation: landscape) {
+  .lista {
+    width: 70%;
+    max-width: 800px;
+    padding: 40px;
+    max-height: 90vh;
+  }
+
+  .lista h1 {
+    font-size: 2.2em;
+  }
+
+  .lista h2 {
+    font-size: 1.5em;
+  }
+}
+.lista {
+  width: 80%;
+  max-width: 700px;
+  padding: 30px;
+  background-color: rgba(26, 26, 26, 0.7); /* nero con 80% opacità */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  max-height: 90vh;
+
+  /* 🔒 Nasconde la scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.lista::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="scroll-area">
       <div class="lista">
         <h1>Eventi</h1>
 <h2>CALCIO</h2>
-<a href="11_00_Juventus_-_Reggiana.html" target="_blank" tabindex="0">11:00 Juventus - Reggiana</a>
-<a href="15_00_RB_Leipzig_-_Atalanta.html" target="_blank" tabindex="0">15:00 RB Leipzig - Atalanta</a>
-<a href="18_00_Lens_-_Roma.html" target="_blank" tabindex="0">18:00 Lens - Roma</a>
-<a href="19_00_Twente_-_Udinese.html" target="_blank" tabindex="0">19:00 Twente - Udinese</a>
-<a href="20_00_Galatasaray_-_Lazio.html" target="_blank" tabindex="0">20:00 Galatasaray - Lazio</a>
-<a href="20_30_Cagliari_-_Saint-Etienne.html" target="_blank" tabindex="0">20:30 Cagliari - Saint-Etienne</a>
-<a href="20_30_Schalke_04_-_Hertha_BSC.html" target="_blank" tabindex="0">20:30 Schalke 04 - Hertha BSC</a>
-<a href="13_00_Konferenz.html" target="_blank" tabindex="0">13:00 Konferenz</a>
-<a href="13_00_Karlsruher_SC_-_PreuBen_Munster.html" target="_blank" tabindex="0">13:00 Karlsruher SC - PreuBen Munster</a>
-<a href="13_00_Darmstadt_98_-_Bochum.html" target="_blank" tabindex="0">13:00 Darmstadt 98 - Bochum</a>
-<a href="13_00_Elversberg_-_Nurnberg.html" target="_blank" tabindex="0">13:00 Elversberg - Nurnberg</a>
-<a href="13_00_Paderborn_-_Holstein_Kiel.html" target="_blank" tabindex="0">13:00 Paderborn - Holstein Kiel</a>
-<a href="20_30_Arminia_Bielefeld_-_Fortuna_Dusseldorf.html" target="_blank" tabindex="0">20:30 Arminia Bielefeld - Fortuna Dusseldorf</a>
-<a href="13_30_Konferenz.html" target="_blank" tabindex="0">13:30 Konferenz</a>
-<a href="13_30_Hannover_96_-_Kaiserslautern.html" target="_blank" tabindex="0">13:30 Hannover 96 - Kaiserslautern</a>
-<a href="13_30_Greuther_Furth_-_Dynamo_Dresden.html" target="_blank" tabindex="0">13:30 Greuther Furth - Dynamo Dresden</a>
-<a href="13_30_Magdeburg_-_Eintracht_Braunschweig.html" target="_blank" tabindex="0">13:30 Magdeburg - Eintracht Braunschweig</a>
+<a href="SABATO_2_AGOSTO_11_00_Juventus_-_Reggiana.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 11:00 Juventus - Reggiana</a>
+<a href="SABATO_2_AGOSTO_15_00_RB_Leipzig_-_Atalanta.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 15:00 RB Leipzig - Atalanta</a>
+<a href="SABATO_2_AGOSTO_18_00_Lens_-_Roma.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 18:00 Lens - Roma</a>
+<a href="SABATO_2_AGOSTO_19_00_Twente_-_Udinese.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 19:00 Twente - Udinese</a>
+<a href="SABATO_2_AGOSTO_20_00_Galatasaray_-_Lazio.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 20:00 Galatasaray - Lazio</a>
+<a href="SABATO_2_AGOSTO_20_30_Cagliari_-_Saint-Etienne.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 20:30 Cagliari - Saint-Etienne</a>
+<a href="VENERDI_1_AGOSTO_20_30_Schalke_04_-_Hertha_BSC.html" target="_blank" tabindex="0">VENERDI 1 AGOSTO 20:30 Schalke 04 - Hertha BSC</a>
+<a href="SABATO_2_AGOSTO_13_00_Konferenz.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Konferenz</a>
+<a href="SABATO_2_AGOSTO_13_00_Karlsruher_SC_-_PreuBen_Munster.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Karlsruher SC - PreuBen Munster</a>
+<a href="SABATO_2_AGOSTO_13_00_Darmstadt_98_-_Bochum.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Darmstadt 98 - Bochum</a>
+<a href="SABATO_2_AGOSTO_13_00_Elversberg_-_Nurnberg.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Elversberg - Nurnberg</a>
+<a href="SABATO_2_AGOSTO_13_00_Paderborn_-_Holstein_Kiel.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Paderborn - Holstein Kiel</a>
+<a href="SABATO_2_AGOSTO_20_30_Arminia_Bielefeld_-_Fortuna_Dusseldorf.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 20:30 Arminia Bielefeld - Fortuna Dusseldorf</a>
+<a href="DOMENICA_3_AGOSTO_13_30_Konferenz.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:30 Konferenz</a>
+<a href="DOMENICA_3_AGOSTO_13_30_Hannover_96_-_Kaiserslautern.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:30 Hannover 96 - Kaiserslautern</a>
+<a href="DOMENICA_3_AGOSTO_13_30_Greuther_Furth_-_Dynamo_Dresden.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:30 Greuther Furth - Dynamo Dresden</a>
+<a href="DOMENICA_3_AGOSTO_13_30_Magdeburg_-_Eintracht_Braunschweig.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:30 Magdeburg - Eintracht Braunschweig</a>
 <h2>TENNIS</h2>
-<a href="17_00_Live.html" target="_blank" tabindex="0">17:00 Live</a>
-<a href="17_00_Live.html" target="_blank" tabindex="0">17:00 Live</a>
+<a href="LUNEDI_28_LUGLIO_-_GIOVEDI_7_AGOSTO_17_00_Live.html" target="_blank" tabindex="0">LUNEDI 28 LUGLIO - GIOVEDI 7 AGOSTO 17:00 Live</a>
+<a href="LUNEDI_28_LUGLIO_-_GIOVEDI_7_AGOSTO_17_00_Live_1.html" target="_blank" tabindex="0">LUNEDI 28 LUGLIO - GIOVEDI 7 AGOSTO 17:00 Live_1</a>
 <h2>FORMULA 1</h2>
-<a href="17_00_Prove_Libere__2_.html" target="_blank" tabindex="0">17:00 Prove Libere (2)</a>
-<a href="12_30_Prove_Libere__3_.html" target="_blank" tabindex="0">12:30 Prove Libere (3)</a>
-<a href="16_00_Qualifiche.html" target="_blank" tabindex="0">16:00 Qualifiche</a>
-<a href="15_00_Gara_a.html" target="_blank" tabindex="0">15:00 Gara a</a>
-<a href="15_00_Gara_b.html" target="_blank" tabindex="0">15:00 Gara b</a>
-<a href="15_00_Gara_c.html" target="_blank" tabindex="0">15:00 Gara c</a>
+<a href="VENERDI_1_AGOSTO_17_00_Prove_Libere__2_.html" target="_blank" tabindex="0">VENERDI 1 AGOSTO 17:00 Prove Libere (2)</a>
+<a href="SABATO_2_AGOSTO_12_30_Prove_Libere__3_.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 12:30 Prove Libere (3)</a>
+<a href="SABATO_2_AGOSTO_16_00_Qualifiche.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 16:00 Qualifiche</a>
+<a href="DOMENICA_3_AGOSTO_15_00_Gara.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 15:00 Gara</a>
+<a href="DOMENICA_3_AGOSTO_15_00_Gara_1.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 15:00 Gara_1</a>
+<a href="DOMENICA_3_AGOSTO_15_00_Gara_2.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 15:00 Gara_2</a>
       </div>
       <div class="wrap">
-        <img src="eventi.png" alt="Eventi" />
+        <img src="eventi.png" tabindex="0" alt="Eventi" />
       </div>
     </div>
   </body>
