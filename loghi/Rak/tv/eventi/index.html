@@ -15,11 +15,10 @@ body::before {
   height: 100%;
   background: url('https://raw.githubusercontent.com/nero081/loghi/main/partite/primo/loghi/nero.png') no-repeat center center;
   background-size: cover;
-  opacity: 0.2; /* controlla la trasparenza */
+  opacity: 0.2;
   pointer-events: none;
   z-index: -1;
 }
-
 
 body {
   margin: 0;
@@ -30,9 +29,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 }
-
 
 .lista h1 {
   font-size: 2em;
@@ -64,7 +62,12 @@ body {
   color: #000;
 }
 
-/* 📱 Portrait mode */
+.lista a:focus {
+  outline: 2px solid #00ffff;
+  background-color: #00ffff;
+  color: #000;
+}
+
 @media screen and (orientation: portrait) {
   .lista {
     width: 90%;
@@ -82,7 +85,6 @@ body {
   }
 }
 
-/* 🖥️ Landscape mode */
 @media screen and (orientation: landscape) {
   .lista {
     width: 70%;
@@ -99,26 +101,23 @@ body {
     font-size: 1.5em;
   }
 }
+
 .lista {
   width: 80%;
   max-width: 700px;
   padding: 30px;
-  background-color: rgba(26, 26, 26, 0.7); /* nero con 80% opacità */
+  background-color: rgba(26, 26, 26, 0.7);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   overflow-y: auto;
   max-height: 90vh;
-
-  /* 🔒 Nasconde la scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .lista::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
-
-
     </style>
   </head>
   <body>
@@ -126,13 +125,20 @@ body {
       <div class="lista">
         <h1>Eventi</h1>
 <h2>CALCIO</h2>
-<a href="SABATO_2_AGOSTO_11_00_Juventus_-_Reggiana.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 11:00 Juventus - Reggiana</a>
 <a href="SABATO_2_AGOSTO_15_00_RB_Leipzig_-_Atalanta.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 15:00 RB Leipzig - Atalanta</a>
 <a href="SABATO_2_AGOSTO_18_00_Lens_-_Roma.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 18:00 Lens - Roma</a>
 <a href="SABATO_2_AGOSTO_19_00_Twente_-_Udinese.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 19:00 Twente - Udinese</a>
 <a href="SABATO_2_AGOSTO_20_00_Galatasaray_-_Lazio.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 20:00 Galatasaray - Lazio</a>
 <a href="SABATO_2_AGOSTO_20_30_Cagliari_-_Saint-Etienne.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 20:30 Cagliari - Saint-Etienne</a>
-<a href="VENERDI_1_AGOSTO_20_30_Schalke_04_-_Hertha_BSC.html" target="_blank" tabindex="0">VENERDI 1 AGOSTO 20:30 Schalke 04 - Hertha BSC</a>
+<a href="DOMENICA_3_AGOSTO_13_00_Newcastle_-_Tottenham.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:00 Newcastle - Tottenham</a>
+<a href="DOMENICA_3_AGOSTO_13_00_Newcastle_-_Tottenham_1.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:00 Newcastle - Tottenham_1</a>
+<a href="DOMENICA_3_AGOSTO_13_00_Newcastle_-_Tottenham_2.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 13:00 Newcastle - Tottenham_2</a>
+<a href="DOMENICA_3_AGOSTO_20_00_Bournemouth_-_West_Ham.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 20:00 Bournemouth - West Ham</a>
+<a href="DOMENICA_3_AGOSTO_20_00_Bournemouth_-_West_Ham_1.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 20:00 Bournemouth - West Ham_1</a>
+<a href="DOMENICA_3_AGOSTO_20_00_Bournemouth_-_West_Ham_2.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 20:00 Bournemouth - West Ham_2</a>
+<a href="DOMENICA_3_AGOSTO_23_00_Manchester_United_-_Everton.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 23:00 Manchester United - Everton</a>
+<a href="DOMENICA_3_AGOSTO_23_00_Manchester_United_-_Everton_1.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 23:00 Manchester United - Everton_1</a>
+<a href="DOMENICA_3_AGOSTO_23_00_Manchester_United_-_Everton_2.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 23:00 Manchester United - Everton_2</a>
 <a href="SABATO_2_AGOSTO_13_00_Konferenz.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Konferenz</a>
 <a href="SABATO_2_AGOSTO_13_00_Karlsruher_SC_-_PreuBen_Munster.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Karlsruher SC - PreuBen Munster</a>
 <a href="SABATO_2_AGOSTO_13_00_Darmstadt_98_-_Bochum.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 13:00 Darmstadt 98 - Bochum</a>
@@ -147,14 +153,41 @@ body {
 <a href="LUNEDI_28_LUGLIO_-_GIOVEDI_7_AGOSTO_17_00_Live.html" target="_blank" tabindex="0">LUNEDI 28 LUGLIO - GIOVEDI 7 AGOSTO 17:00 Live</a>
 <a href="LUNEDI_28_LUGLIO_-_GIOVEDI_7_AGOSTO_17_00_Live_1.html" target="_blank" tabindex="0">LUNEDI 28 LUGLIO - GIOVEDI 7 AGOSTO 17:00 Live_1</a>
 <h2>FORMULA 1</h2>
-<a href="VENERDI_1_AGOSTO_17_00_Prove_Libere__2_.html" target="_blank" tabindex="0">VENERDI 1 AGOSTO 17:00 Prove Libere (2)</a>
 <a href="SABATO_2_AGOSTO_12_30_Prove_Libere__3_.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 12:30 Prove Libere (3)</a>
 <a href="SABATO_2_AGOSTO_16_00_Qualifiche.html" target="_blank" tabindex="0">SABATO 2 AGOSTO 16:00 Qualifiche</a>
 <a href="DOMENICA_3_AGOSTO_15_00_Gara.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 15:00 Gara</a>
 <a href="DOMENICA_3_AGOSTO_15_00_Gara_1.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 15:00 Gara_1</a>
 <a href="DOMENICA_3_AGOSTO_15_00_Gara_2.html" target="_blank" tabindex="0">DOMENICA 3 AGOSTO 15:00 Gara_2</a>
       </div>
-      
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = Array.from(document.querySelectorAll('.lista a'));
+
+        links.forEach(link => {
+          link.addEventListener('focus', () => {
+            link.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          });
+        });
+
+        if (links.length > 0) {
+          links[0].focus();
+        }
+
+        document.addEventListener('keydown', (e) => {
+          const active = document.activeElement;
+          const index = links.indexOf(active);
+          if (index !== -1) {
+            if (e.key === 'ArrowDown' && index < links.length - 1) {
+              e.preventDefault();
+              links[index + 1].focus();
+            } else if (e.key === 'ArrowUp' && index > 0) {
+              e.preventDefault();
+              links[index - 1].focus();
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
